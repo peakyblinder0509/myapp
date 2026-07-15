@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        HARBOR_REG = 'harbor-node1.com/myapp'
+        HARBOR_REG = 'harbor-node1.com/my-app'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
     stages {
