@@ -27,7 +27,7 @@ pipeline {
         stage('Push to Harbor') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'test-harbor', usernameVariable: 'U', passwordVariable: 'P')]) {
-                    sh "echo $P | docker login harbor-node1.com -u $U --password-stdin"
+                    sh "echo \$P | docker login harbor-node1.com -u 'robot\$jenkins' --password-stdin"
                     sh "docker push ${HARBOR_REG}/frontend:${IMAGE_TAG}"
                     sh "docker push ${HARBOR_REG}/backend:${IMAGE_TAG}"
                 }
